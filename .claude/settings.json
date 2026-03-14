@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l *.html styles.css js/main.js)",
+      "Bash(lsof -i :8080)",
+      "Bash(lsof -p 32093)",
+      "Bash(test -f \"/Users/lucasaltepost/Project/Internet site nØ quit/Brand_assets/first page image.png\")"
+    ],
+    "additionalDirectories": [
+      "/Users/lucasaltepost/Project/Internet site nØ quit/storefront"
+    ]
+  }
+}
