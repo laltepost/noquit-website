@@ -1,0 +1,100 @@
+name: NØ QUIT Performance
+description: Dietary supplement brand — phenylcapsaicin capsules powered by aXivite®
+
+company:
+  legal_name: NOQUIT PERFORMANCE LLC
+  owners:
+    - Norbitech AS
+    - See-Nutrition LLC
+  address: 221 Dino Drive, Suite D, Ann Arbor, MI 48103
+  market: US only
+
+colors:
+  primary:
+    - "#0A0A0A"    # near-black background
+    - "#F0ECE6"    # warm white
+  secondary:
+    - "#6E8494"    # steel — accent, highlights, CTAs
+    - "#A0B8C8"    # steel light
+    - "#DAD6D0"    # chalk
+  surfaces:
+    - "#111111"    # surface-1
+    - "#171717"    # surface-2
+    - "#1C1C1C"    # surface-3
+    - "#242424"    # surface-4
+  text:
+    - "#B0ACA6"    # body text
+    - "#8A8680"    # dim text
+    - "#6E6A64"    # fine print
+  borders:
+    - "rgba(255, 255, 255, 0.09)"
+    - "rgba(255, 255, 255, 0.16)"
+    - "rgba(255, 255, 255, 0.24)"
+  steel_variants:
+    mid: "#7D95A6"
+    dim: "rgba(110, 132, 148, 0.30)"
+    glow: "rgba(110, 132, 148, 0.12)"
+  tolerance: 5
+
+typography:
+  heading:
+    family: Barlow Condensed
+    weight: 600-900
+    size_range: [18, 72]
+  body:
+    family: Barlow
+    weight: 300-700
+    size_range: [10, 16]
+  serif_accent:
+    family: DM Serif Display
+    weight: 400
+    style: italic
+    note: Web-only (Google Fonts) — no local TTF bundled yet
+  caption:
+    family: Barlow
+    weight: 400
+    size_range: [8, 10]
+  line_height: 1.4
+
+logo:
+  primary_mark: "NØ QUIT"
+  sub_line: "PERFORMANCE"
+  sub_line_style: uppercase, spaced tracking
+  separator: thin horizontal rule below logo
+  variants:
+    - file: logos/noquit-white.png
+      use_on: dark
+    - file: logos/noquit-white-cropped.png
+      use_on: dark
+  position: centered
+  clear_space_mm: 5
+
+co_branding:
+  partner: aXivite®
+  relationship: Trademark License Agreement (TMLA) — aXivite® used in formulation
+  lockup: "Powered by aXivite®"
+  note: >
+    NØ QUIT has no corporate connection to aXichem AB (owner of aXivite®).
+    The TMLA grants NØ QUIT the right to use the aXivite® trademark on
+    packaging and marketing. This is the only link between the two entities.
+
+visual_language:
+  aesthetic: minimal, high-contrast, editorial
+  background: matte black
+  section_labels: "uppercase, small, steel accent, format '001 / Category'"
+  cards: dark background, subtle 1px border, rounded corners
+
+label:
+  dimensions:
+    width_inches: 6.5
+    height_inches: 2.5
+    bleed_inches: 0.125
+  bottle: 120cc / 4oz wide-mouth HDPE jar
+  color_mode: CMYK
+  resolution: 300 DPI
+  cmyk_equivalents:
+    background: "0/0/0/100"
+    white: "0/0/0/0"
+    steel_accent: "45/18/0/30"
+    muted_text: "0/0/0/40"
+    dim_text: "0/0/0/67"
