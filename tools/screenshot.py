@@ -14,7 +14,10 @@ from playwright.async_api import async_playwright
 async def capture(url: str, output: str, full_page: bool, clip, width: int, height: int):
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        page = await browser.new_page(viewport={"width": width, "height": height})
+        page = await browser.new_page(
+            viewport={"width": width, "height": height},
+            reduced_motion="reduce",
+        )
         await page.goto(url, wait_until="networkidle")
         kwargs = {"path": output, "full_page": full_page}
         if clip:

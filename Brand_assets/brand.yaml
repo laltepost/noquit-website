@@ -23,9 +23,9 @@ colors:
     - "#1C1C1C"    # surface-3
     - "#242424"    # surface-4
   text:
-    - "#B0ACA6"    # body text
-    - "#8A8680"    # dim text
-    - "#6E6A64"    # fine print
+    - "#A8A39C"    # body text — WCAG AA (5.5:1 on #080808)
+    - "#7C7872"    # dim text  — WCAG AA-Large (3.5:1 on #080808); use for review names, footer legal
+  # Note: no "fine print" tier. FDA-mandated disclaimers render at body color, never below.
   borders:
     - "rgba(255, 255, 255, 0.09)"
     - "rgba(255, 255, 255, 0.16)"

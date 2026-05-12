@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NØ QUIT Performance — Brand Manual v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+  /* ──────────────────────────────────────────────
+     NØ QUIT Brand Manual v2 — source HTML
+     Renders to letter-size PDF via Playwright.
+     ────────────────────────────────────────────── */
+
+  :root {
+    --c-black:     #080808;
+    --c-surface:   #101010;
+    --c-surface-2: #161616;
+    --c-surface-3: #1E1E1E;
+    --c-surface-4: #252525;
+    --c-steel:     #6E8494;
+    --c-steel-lt:  #90A8B8;
+    --c-chalk:     #D6D1CB;
+    --c-white:     #EDE9E3;
+    --c-text:      #A8A39C;
+    --c-text-dim:  #7C7872;
+    --c-paper:     #FBFAF7;
+    --c-ink:       #1A1A19;
+    --c-rule:      #DCD7D0;
+  }
+
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--c-paper); color: var(--c-ink); }
+  body {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 11pt;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    padding: 0.6in 0.85in 0.8in;
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    overflow: hidden;
+  }
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .page-num {
+    position: absolute;
+    bottom: 0.35in;
+    right: 0.85in;
+    font-family: 'Barlow', sans-serif;
+    font-size: 9pt;
+    color: var(--c-text-dim);
+    letter-spacing: 0.04em;
+  }
+  .page-brand {
+    position: absolute;
+    bottom: 0.35in;
+    left: 0.85in;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    color: var(--c-text-dim);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* TYPOGRAPHY */
+  h1, h2, h3, h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    color: var(--c-ink);
+    letter-spacing: -0.005em;
+  }
+  h1.section-num {
+    font-weight: 900;
+    font-size: 28pt;
+    line-height: 0.95;
+    margin-bottom: 0.08in;
+  }
+  h1.section-num .n {
+    color: var(--c-steel);
+    font-weight: 700;
+    margin-right: 0.16em;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 13pt;
+    line-height: 1.2;
+    margin: 0.14in 0 0.05in;
+    letter-spacing: 0.01em;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 11pt;
+    line-height: 1.25;
+    margin: 0.12in 0 0.04in;
+    letter-spacing: 0.02em;
+  }
+  p { margin: 0 0 0.07in; font-size: 10.5pt; }
+  p + p { margin-top: 0.06in; }
+
+  .eyebrow {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 8pt;
+    color: var(--c-steel);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.1in;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0.04in 0 0.08in;
+  }
+  li {
+    padding-left: 0.18in;
+    position: relative;
+    margin-bottom: 0.035in;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.085in;
+    width: 0.06in;
+    height: 1px;
+    background: var(--c-steel);
+  }
+
+  .rule {
+    border: 0;
+    border-top: 1px solid var(--c-rule);
+    margin: 0.14in 0;
+  }
+  .rule-thick {
+    border-top: 2px solid var(--c-ink);
+    margin: 0.06in 0 0.14in;
+  }
+
+  .note {
+    color: var(--c-text-dim);
+    font-size: 9.5pt;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .pillquote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 15pt;
+    line-height: 1.2;
+    color: var(--c-ink);
+    margin: 0.08in 0;
+  }
+
+  /* COVER */
+  .cover { justify-content: center; text-align: center; padding-top: 1.6in; }
+  .cover .mark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 68pt;
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+  }
+  .cover .subline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 0.42em;
+    color: var(--c-steel);
+    margin-top: 0.16in;
+    text-transform: uppercase;
+  }
+  .cover .divider {
+    width: 0.6in;
+    height: 1px;
+    background: var(--c-ink);
+    margin: 0.4in auto;
+  }
+  .cover .doctitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16pt;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.08in;
+  }
+  .cover .doctitle .em {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--c-ink);
+  }
+  .cover .docmeta {
+    font-size: 10pt;
+    color: var(--c-text-dim);
+    margin-bottom: 0.5in;
+  }
+  .cover .tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 22pt;
+    letter-spacing: 0.005em;
+  }
+  .cover .tagline .em {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--c-ink);
+  }
+  .cover .version {
+    margin-top: 0.65in;
+    font-size: 9pt;
+    color: var(--c-text-dim);
+    letter-spacing: 0.06em;
+  }
+
+  /* TOC */
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.07in 0;
+    border-bottom: 1px solid var(--c-rule);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 11pt;
+  }
+  .toc-item:first-of-type { border-top: 1px solid var(--c-rule); }
+  .toc-num {
+    color: var(--c-steel);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    letter-spacing: 0.1em;
+    width: 0.45in;
+  }
+  .toc-label { flex: 1; }
+  .toc-page {
+    color: var(--c-text-dim);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    letter-spacing: 0.05em;
+  }
+
+  /* PALETTE TABLE */
+  .palette {
+    display: grid;
+    grid-template-columns: 0.95in 0.5in 0.85in 1fr;
+    gap: 0;
+    border-top: 1px solid var(--c-rule);
+  }
+  .palette > div {
+    padding: 0.04in 0.1in;
+    border-bottom: 1px solid var(--c-rule);
+    font-size: 9pt;
+    line-height: 1.35;
+    display: flex;
+    align-items: center;
+  }
+  .palette .h {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+    color: var(--c-text-dim);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding-top: 0.05in;
+    padding-bottom: 0.03in;
+  }
+  .swatch {
+    width: 0.3in;
+    height: 0.2in;
+    border-radius: 2px;
+    border: 1px solid var(--c-rule);
+  }
+  .hex {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-feature-settings: "tnum" 1;
+  }
+
+  /* INLINE TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.06in 0;
+    font-size: 9.5pt;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.035in 0.1in 0.035in 0;
+    border-bottom: 1px solid var(--c-rule);
+    vertical-align: top;
+  }
+  th {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--c-text-dim);
+    border-bottom: 1px solid var(--c-ink);
+  }
+
+  /* DESIGN-PATTERN TILES (for the "design system" page) */
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2in;
+    margin-top: 0.14in;
+  }
+  .pattern {
+    border: 1px solid var(--c-rule);
+    border-radius: 3px;
+    padding: 0.15in;
+    background: #fff;
+  }
+  .pattern-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.04in;
+  }
+  .pattern-where {
+    font-size: 8.5pt;
+    color: var(--c-steel);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.08in;
+  }
+  .pattern p { font-size: 9.5pt; line-height: 1.45; color: var(--c-ink); }
+  .pattern-vis {
+    margin-top: 0.1in;
+    height: 0.65in;
+    background: var(--c-black);
+    border-radius: 2px;
+    color: var(--c-white);
+    padding: 0.08in 0.12in;
+    display: flex;
+    align-items: center;
+    gap: 0.12in;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  .pattern-vis .n {
+    font-weight: 900;
+    font-size: 22pt;
+    line-height: 1;
+    color: var(--c-white);
+  }
+  .pattern-vis .n.dim { color: var(--c-surface-4); }
+  .pattern-vis .n.steel { color: var(--c-steel); }
+  .pattern-vis .label {
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c-steel-lt);
+  }
+  .pattern-vis .connector {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.18);
+    margin: 0 0.04in;
+  }
+
+  /* DO/DONT */
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2in; }
+  .do-col, .dont-col {
+    padding: 0.12in 0.14in;
+    border-top: 2px solid var(--c-ink);
+  }
+  .dont-col { border-top-color: var(--c-steel); }
+  .do-col h3, .dont-col h3 { margin-top: 0; }
+
+  /* CHANGELOG */
+  .changelog-row {
+    display: grid;
+    grid-template-columns: 1.4in 1fr 1fr;
+    gap: 0.1in;
+    padding: 0.06in 0;
+    border-bottom: 1px solid var(--c-rule);
+    font-size: 9.5pt;
+    line-height: 1.45;
+  }
+  .changelog-row:first-child {
+    border-top: 1px solid var(--c-ink);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--c-text-dim);
+  }
+  .changelog-row .from { color: var(--c-text-dim); text-decoration: line-through; }
+
+  /* small helpers */
+  .mt-3 { margin-top: 0.16in; }
+  .mb-3 { margin-bottom: 0.16in; }
+  .em-steel { color: var(--c-steel); font-weight: 600; }
+  .mono {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+    font-size: 9.5pt;
+  }
+  code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+    font-size: 9.5pt;
+    background: rgba(110, 132, 148, 0.12);
+    padding: 1px 4px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ───── PAGE 1: COVER ───── -->
+<section class="page cover">
+  <div class="mark">N<span style="font-family:inherit;">Ø</span> QUIT</div>
+  <div class="subline">NOQUIT PERFORMANCE</div>
+  <div class="divider"></div>
+  <div class="doctitle">Brand Manual <span class="em">+</span> Website Brief <span class="em">+</span> Packaging &amp; Copy Kit</div>
+  <div class="docmeta">Route A (Hero-only) Launch Kit · Matte Black + Steel · 60 Capsules</div>
+  <div class="tagline">Finish Strong. <span class="em">Recover Ready.</span></div>
+  <div class="version">Version 2.0 · May 12, 2026 · Internal working document</div>
+</section>
+
+<!-- ───── PAGE 2: CONTENTS ───── -->
+<section class="page">
+  <div class="eyebrow">Contents</div>
+  <h1 class="section-num">What's inside.</h1>
+  <hr class="rule-thick">
+
+  <div class="toc-item"><span class="toc-num">01</span><span class="toc-label">Brand foundations</span><span class="toc-page">03</span></div>
+  <div class="toc-item"><span class="toc-num">02</span><span class="toc-label">Brand architecture &amp; naming rules</span><span class="toc-page">04</span></div>
+  <div class="toc-item"><span class="toc-num">03</span><span class="toc-label">Messaging, voice &amp; compliance guardrails</span><span class="toc-page">05</span></div>
+  <div class="toc-item"><span class="toc-num">04</span><span class="toc-label">Visual identity system</span><span class="toc-page">06</span></div>
+  <div class="toc-item"><span class="toc-num">05</span><span class="toc-label">Packaging system + label copy</span><span class="toc-page">08</span></div>
+  <div class="toc-item"><span class="toc-num">06</span><span class="toc-label">Website brief</span><span class="toc-page">09</span></div>
+  <div class="toc-item"><span class="toc-num">07</span><span class="toc-label">Website copy pack</span><span class="toc-page">10</span></div>
+  <div class="toc-item"><span class="toc-num">08</span><span class="toc-label">Web design system patterns</span><span class="toc-page">11</span></div>
+  <div class="toc-item"><span class="toc-num">09</span><span class="toc-label">Creator &amp; social toolkit</span><span class="toc-page">12</span></div>
+  <div class="toc-item"><span class="toc-num">10</span><span class="toc-label">Appendix (A — QR science · B — substantiation · C — accessibility)</span><span class="toc-page">13</span></div>
+  <div class="toc-item"><span class="toc-num">10</span><span class="toc-label">v1 → v2 changelog</span><span class="toc-page">14</span></div>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">02</div>
+</section>
+
+<!-- ───── PAGE 3: BRAND FOUNDATIONS ───── -->
+<section class="page">
+  <div class="eyebrow">Section 01</div>
+  <h1 class="section-num"><span class="n">01</span>Brand foundations.</h1>
+  <hr class="rule-thick">
+
+  <h2>Category</h2>
+  <p>Functional fitness repeatability capsule. Not a pre-workout powder. Not a fat-burner. Not a pump product.</p>
+
+  <h2>Primary audience (single ICP)</h2>
+  <p>Consistency-seeking functional fitness athletes training 4–6+ sessions per week who want to maintain quality output when fatigue builds and recover ready for the next session. Supplement-literate; they read labels and treat supplements as part of a training stack.</p>
+  <p class="note">Adjacent audience: serious endurance athletes (runners, cyclists, triathletes). Visual register and copy should lead with functional fitness and not exclude endurance.</p>
+
+  <h2>Brand register</h2>
+  <p><span class="em-steel">Brand</span> — design is the product. Marketing surfaces (homepage, PDP, science, about, FAQ) carry the brand; the storefront is itself a brand statement, not just a transactional surface.</p>
+
+  <h2>Brand promise</h2>
+  <p class="pillquote">Finish Strong. Recover Ready.</p>
+
+  <h2>Positioning (internal)</h2>
+  <p>NØ QUIT is the phenylcapsaicin-anchored capsule designed to support late-session output and recovery after hard training, so athletes can train hard more consistently.</p>
+
+  <h2>What NØ QUIT is NOT</h2>
+  <ul>
+    <li>Not a stimulant "buzz" product.</li>
+    <li>Not a pump-first product.</li>
+    <li>Not a weight-loss / thermogenic brand.</li>
+    <li>Not a product that encourages unsafe training or "ignoring pain."</li>
+  </ul>
+
+  <h2>Anti-references (must never feel like)</h2>
+  <ul>
+    <li><strong>Supplement-bro hype</strong> (Bang / C4 / GNC). Neon greens, ALL CAPS GAINS, before/after photos.</li>
+    <li><strong>Pharmacy-clinical bland</strong> (CVS / Centrum). Blue + white, stock-smile models, regulatory tone.</li>
+    <li><strong>Cottage-wellness</strong> (Goop / Moon Juice). Pastel + beige, hand-lettering, "rituals."</li>
+    <li><strong>Generic DTC Shopify</strong>. Inter on off-white, identical hero + product grid, rounded everything.</li>
+  </ul>
+
+  <h2>Differentiation (one line)</h2>
+  <p>Repeatability + recovery in one clean capsule, with a science moat kept off-pack (QR) to preserve premium branding.</p>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">03</div>
+</section>
+
+<!-- ───── PAGE 4: BRAND ARCHITECTURE ───── -->
+<section class="page">
+  <div class="eyebrow">Section 02</div>
+  <h1 class="section-num"><span class="n">02</span>Brand architecture &amp; naming rules.</h1>
+  <hr class="rule-thick">
+
+  <h2>Visual brand mark (logo)</h2>
+  <p>NØ QUIT, slashed Ø (Unicode U+00D8).</p>
+
+  <h2>Digital / searchable string</h2>
+  <p><span class="mono">NOQUIT PERFORMANCE</span> — no special characters. Use this for domains, email, social handles, page titles, alt text, SEO.</p>
+
+  <h2>Writing rules</h2>
+  <ul>
+    <li>Logo: always write NØ QUIT (Ø). Export as outlined vector for print to avoid glyph rendering issues.</li>
+    <li>In body copy: "No Quit Performance" (Title Case) is acceptable. Avoid Ø in URLs.</li>
+    <li>Never use "CrossFit" or imply endorsement. Use "functional fitness" or "high-intensity training."</li>
+    <li>Keep the product descriptor factual: "Phenylcapsaicin Capsules." Avoid selling the dose as a headline.</li>
+  </ul>
+
+  <h2>Product naming (Route A launch)</h2>
+  <p>Working product name: <strong>NØ QUIT Phenylcapsaicin Capsules (60 Capsules)</strong>.</p>
+  <p>Front-of-pack promises are the product identity; the ingredient descriptor stays small and factual.</p>
+
+  <h2>Punctuation conventions</h2>
+  <ul>
+    <li><strong>Em dashes (—)</strong>: reserved for metadata only (page titles, review attributions like "Marcus T. — Denver, CO", quotation attributions, footer copyright separators, table NULL cells).</li>
+    <li><strong>In body copy</strong>: never use em dashes. Use periods, commas, semicolons, or colons. Density of em dashes is the strongest AI fingerprint in written copy.</li>
+    <li><strong>Middle dot (·)</strong>: used in CTA constructions like "Shop NØ QUIT · $59" and label compounds like "Subscribe &amp; Save · Billed Monthly."</li>
+    <li><strong>Bullet style</strong>: tight, terminal sentences. No trailing em-dash sign-offs.</li>
+  </ul>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">04</div>
+</section>
+
+<!-- ───── PAGE 5: MESSAGING, VOICE, COMPLIANCE ───── -->
+<section class="page">
+  <div class="eyebrow">Section 03</div>
+  <h1 class="section-num"><span class="n">03</span>Messaging, voice &amp; compliance.</h1>
+  <hr class="rule-thick">
+
+  <h2>Voice</h2>
+  <p>Short, disciplined, premium. No hype. No bro-science. No miracle claims. Spare sentences. Clinical accuracy. No exclamation points. No superlatives. No second-person hectoring.</p>
+
+  <h2>Allowed intensity language</h2>
+  <ul>
+    <li>finish strong</li>
+    <li>last reps / late rounds</li>
+    <li>when fatigue peaks</li>
+    <li>repeatable intensity</li>
+    <li>show up ready</li>
+    <li>don't fade</li>
+  </ul>
+
+  <h2>Guardrails (never imply)</h2>
+  <ul>
+    <li>Disease treatment, prevention, or diagnosis.</li>
+    <li>Pain relief or "numbing" effects.</li>
+    <li>Unsafe training: ignoring injury, ignoring pain signals, reckless "push past anything."</li>
+    <li>Weight-loss promises (burn fat, shred, melt, etc.).</li>
+    <li>Guaranteed PRs or competition outcomes.</li>
+  </ul>
+
+  <h2>Structure / function claim style</h2>
+  <ul>
+    <li>Supports high-intensity exercise performance when fatigue builds.</li>
+    <li>Supports recovery after intense training.</li>
+    <li>Helps reduce exercise-related muscle soreness (use carefully; avoid "pain relief").</li>
+    <li>Supports repeatable training output across the week.</li>
+  </ul>
+
+  <h2>Required disclaimer</h2>
+  <p class="note">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+  <p class="note">Disclaimer must render at body-text size (13px minimum) and body-text color — never as faded fine print. Place near the claim or in the section footer.</p>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">05</div>
+</section>
+
+<!-- ───── PAGE 6: VISUAL IDENTITY ───── -->
+<section class="page">
+  <div class="eyebrow">Section 04</div>
+  <h1 class="section-num"><span class="n">04</span>Visual identity system.</h1>
+  <hr class="rule-thick">
+
+  <h2>Logo mark</h2>
+  <p>NØ QUIT wordmark in all caps with Ø (Unicode U+00D8). Export as outlined vector for print to avoid glyph rendering issues. Centered when used in headers; clear space minimum 5mm in print.</p>
+
+  <h2>Typography</h2>
+  <table>
+    <thead>
+      <tr><th>Role</th><th>Family</th><th>Weight</th><th>Use</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Display / heading</td><td>Barlow Condensed</td><td>600–900</td><td>Hero, section heads, product titles, big numerals</td></tr>
+      <tr><td>Body</td><td>Barlow</td><td>300–500</td><td>Paragraph copy, supplement facts, FAQ answers</td></tr>
+      <tr><td>Editorial accent</td><td>DM Serif Display</td><td>400 italic</td><td>Pull quotes, single-word emphasis (sparingly)</td></tr>
+      <tr><td>Label / eyebrow</td><td>Barlow</td><td>500 uppercase</td><td>Section labels, 10–11px tracked 0.18em</td></tr>
+    </tbody>
+  </table>
+  <p class="note">All three families ship via Google Fonts CDN. Web fallback: <code>sans-serif</code>. If a print supplier cannot use Barlow Condensed, substitute Bebas or another modern grotesk; keep the Ø mark as vector artwork.</p>
+
+  <h2>Color palette (canonical)</h2>
+  <div class="palette">
+    <div class="h">Role</div><div class="h">Swatch</div><div class="h">Hex</div><div class="h">Notes</div>
+    <div>Matte Black</div><div><span class="swatch" style="background:#080808"></span></div><div class="hex">#080808</div><div>Primary backgrounds, bottle</div>
+    <div>Surface</div><div><span class="swatch" style="background:#101010"></span></div><div class="hex">#101010</div><div>Section alt background</div>
+    <div>Surface 2</div><div><span class="swatch" style="background:#161616"></span></div><div class="hex">#161616</div><div>Card backgrounds (rail, etc.)</div>
+    <div>Surface 3</div><div><span class="swatch" style="background:#1E1E1E"></span></div><div class="hex">#1E1E1E</div><div>Ornament numerals (poster)</div>
+    <div>Surface 4</div><div><span class="swatch" style="background:#252525"></span></div><div class="hex">#252525</div><div>Dim numerals, top of dark ladder</div>
+    <div>Steel</div><div><span class="swatch" style="background:#6E8494"></span></div><div class="hex">#6E8494</div><div>Accent — labels, brand-color numerals, QR badge</div>
+    <div>Steel Light</div><div><span class="swatch" style="background:#90A8B8"></span></div><div class="hex">#90A8B8</div><div>Secondary accent — captions, small headings</div>
+    <div>Chalk</div><div><span class="swatch" style="background:#D6D1CB"></span></div><div class="hex">#D6D1CB</div><div>Hero subhead, secondary text on dark</div>
+    <div>White</div><div><span class="swatch" style="background:#EDE9E3"></span></div><div class="hex">#EDE9E3</div><div>Primary text on dark, primary button fill</div>
+    <div>Text</div><div><span class="swatch" style="background:#A8A39C"></span></div><div class="hex">#A8A39C</div><div>Body copy — passes WCAG AA at 5.5:1</div>
+    <div>Text Dim</div><div><span class="swatch" style="background:#7C7872"></span></div><div class="hex">#7C7872</div><div>Review attributions, footer fine print — AA-Large only (3.5:1)</div>
+    <div>Warm Chalk</div><div><span class="swatch" style="background:#DDD8D2"></span></div><div class="hex">#DDD8D2</div><div>Pomelli product-showcase panel (warm interrupt)</div>
+  </div>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">06</div>
+</section>
+
+<!-- ───── PAGE 7: VISUAL IDENTITY (continued) ───── -->
+<section class="page">
+  <div class="eyebrow">Section 04 — continued</div>
+  <h1 class="section-num"><span class="n">04</span>Color strategy &amp; layout.</h1>
+  <hr class="rule-thick">
+
+  <h2>Color strategy</h2>
+  <p>Restrained committed monochrome with one accent. Black dominates the surface; steel is the single accent, used at &lt;10% surface coverage. Warm chalk #DDD8D2 is the only off-palette break, reserved for editorial product moments (Pomelli showcase). No gradient text. No glassmorphism as default. No tinted backgrounds outside the listed surface ladder.</p>
+
+  <h2>Layout principles</h2>
+  <ul>
+    <li>Minimalism: strong whitespace; labels and pages stay uncluttered.</li>
+    <li>Hierarchy: brand mark first; promise second; ingredient descriptor third.</li>
+    <li>Steel accent is a "whisper," not a theme — use sparingly.</li>
+    <li>Container max-width 1320px on web; section padding 148px desktop / 80px mobile.</li>
+    <li>No card-grid replication: vary section patterns (see Section 08).</li>
+  </ul>
+
+  <h2>Photography &amp; content style</h2>
+  <ul>
+    <li>Functional fitness environments: rig, chalk, bars, plates, timer. No explicit branded CrossFit signage.</li>
+    <li>Emotion: late-session grit, controlled form, "finish" moments.</li>
+    <li>Avoid body-shaming transformations, injury content, "fat burn" visuals, stock-model smiles.</li>
+    <li>Female and male athletes in roughly equal rotation; performance signals over physique.</li>
+  </ul>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">07</div>
+</section>
+
+<!-- ───── PAGE 8: PACKAGING ───── -->
+<section class="page">
+  <div class="eyebrow">Section 05</div>
+  <h1 class="section-num"><span class="n">05</span>Packaging system.</h1>
+  <hr class="rule-thick">
+
+  <h2>Launch SKU</h2>
+  <p>60 Capsules · Phenylcapsaicin Capsules · Matte Black bottle (120cc / 4oz wide-mouth HDPE jar). Label dimensions 6.5" × 2.5", bleed 0.125", CMYK, 300 DPI.</p>
+
+  <h2>Front panel copy (in hierarchy)</h2>
+  <ul>
+    <li>NØ QUIT</li>
+    <li>PERFORMANCE</li>
+    <li>Finish Strong.</li>
+    <li>Recover Ready.</li>
+    <li>Phenylcapsaicin Capsules</li>
+    <li>Dietary Supplement</li>
+    <li>60 Capsules</li>
+  </ul>
+
+  <h2>Back panel copy (3 bullets + QR)</h2>
+  <ul>
+    <li>Supports performance when fatigue peaks.</li>
+    <li>Supports recovery after intense training.</li>
+    <li>Built for repeatable high-intensity training.</li>
+    <li>QR badge: "The Science" (links to factual study summary page).</li>
+  </ul>
+
+  <h2>Claims disclaimer</h2>
+  <p class="note">Place near the support bullets at body-text size (not faded fine print): "These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease."</p>
+
+  <h2>Supplement Facts &amp; regulatory notes</h2>
+  <ul>
+    <li>List phenylcapsaicin and amount per serving in Supplement Facts. Keep the amount factual; do not use it as a headline claim.</li>
+    <li>Avoid references to CrossFit. Use "functional fitness" wording.</li>
+    <li>Include standard caution language: age, pregnancy/nursing, medications, discontinue if adverse effects.</li>
+  </ul>
+
+  <h2>CMYK production references</h2>
+  <table>
+    <thead><tr><th style="width:25%">Role</th><th style="width:22%">CMYK</th><th style="width:25%">Role</th><th>CMYK</th></tr></thead>
+    <tbody>
+      <tr><td>Background (Matte Black)</td><td>0 / 0 / 0 / 100</td><td>Steel accent</td><td>45 / 18 / 0 / 30</td></tr>
+      <tr><td>White</td><td>0 / 0 / 0 / 0</td><td>Muted text</td><td>0 / 0 / 0 / 40</td></tr>
+      <tr><td>Dim text</td><td>0 / 0 / 0 / 67</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">08</div>
+</section>
+
+<!-- ───── PAGE 9: WEBSITE BRIEF ───── -->
+<section class="page">
+  <div class="eyebrow">Section 06</div>
+  <h1 class="section-num"><span class="n">06</span>Website brief.</h1>
+  <hr class="rule-thick">
+
+  <h2>Primary goal</h2>
+  <p>Convert consistency-seeking functional fitness athletes by making the promise instantly clear and the science accessible without clutter.</p>
+
+  <h2>Secondary goals</h2>
+  <p>Build trust (quality/testing) and capture emails for retention/subscription. Pre-launch: capture launch-list signups (live checkout is disabled until launch — see microcopy).</p>
+
+  <h2>Key pages (v1 site)</h2>
+  <ul>
+    <li><strong>Home</strong> — brand + promise + product hero + 3 pillars + comparison table + trust + reviews + FAQ preview + email capture.</li>
+    <li><strong>Product (PDP)</strong> — single SKU, subscribe / one-time, supplement facts, benefits rail (horizontal scroll), reviews, FAQ, shipping.</li>
+    <li><strong>Science</strong> — QR destination + on-page: compound, observed effects, what it means / what it doesn't, protocol (step-flow), quality.</li>
+    <li><strong>About</strong> — brand story, three principles (editorial poster), four standards (numbered grid).</li>
+    <li><strong>FAQ</strong> — categorized, sidebar navigation, contact block.</li>
+  </ul>
+
+  <h2>User journey</h2>
+  <ul>
+    <li>Ad / creator content → Home or PDP.</li>
+    <li>Hero promise → supporting bullets → social proof → trust markers → buy.</li>
+    <li>Optional deep dive: Science page (factual summaries, no hype).</li>
+    <li>Post-purchase: email onboarding → science → community habit.</li>
+  </ul>
+
+  <h2>UX principles</h2>
+  <ul>
+    <li>One screen to understand: what it is, who it's for, why it's different.</li>
+    <li>Minimal page weight; fast load; mobile-first.</li>
+    <li>Use "supports" language; avoid prohibited claims.</li>
+    <li>No CrossFit references. Use "functional fitness / high-intensity training."</li>
+  </ul>
+
+  <h2>Tech stack (current)</h2>
+  <ul>
+    <li>Static HTML + CSS + vanilla JS (no framework, no build step). 5 pages, shared styles.css, shared main.js.</li>
+    <li>Fonts via Google Fonts CDN (Barlow Condensed, Barlow, DM Serif Display).</li>
+    <li>Pre-launch: cart drawer renders a <code>disabled</code> Checkout button reading "Checkout opens at launch."</li>
+  </ul>
+  <p class="note">Recommended at launch: Shopify or Stripe Checkout for transactions; Klaviyo for email; GA4 + post-purchase 1-question survey.</p>
+  <p class="note">Accessibility floor: WCAG AA — see Appendix C for full spec.</p>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">09</div>
+</section>
+
+<!-- ───── PAGE 10: COPY PACK ───── -->
+<section class="page">
+  <div class="eyebrow">Section 07</div>
+  <h1 class="section-num"><span class="n">07</span>Website copy pack.</h1>
+  <hr class="rule-thick">
+
+  <h2>7.1 Homepage hero</h2>
+  <p><strong>H1:</strong> Finish Strong.<br>
+  <strong>H1 (stroked):</strong> Recover Ready.</p>
+  <p><strong>Subhead:</strong> NØ QUIT is a minimal phenylcapsaicin capsule designed to support repeatable high-intensity performance, so you can train hard, recover well, and come back stronger.</p>
+  <p><strong>3 supporting bullets:</strong></p>
+  <ul>
+    <li>Performance when fatigue peaks</li>
+    <li>Recovery after hard sessions</li>
+    <li>Built for repeatable intensity</li>
+  </ul>
+  <p><strong>Primary CTA:</strong> Shop NØ QUIT · $59 &nbsp; <span class="note">(middle dot, no em dash)</span></p>
+  <p><strong>Secondary CTA:</strong> Learn the science →</p>
+
+  <h2>7.2 Product page (PDP)</h2>
+  <p><strong>Product name:</strong> NØ QUIT Phenylcapsaicin Capsules</p>
+  <p><strong>Short description:</strong> A performance capsule built for the last reps and the next session.</p>
+  <p><strong>Long description:</strong> NØ QUIT supports repeatable intensity, helping you stay strong when fatigue builds and supporting recovery after intense training. Minimal formula. Maximum purpose.</p>
+  <p><strong>Purchase option label:</strong> Subscribe &amp; Save · Billed Monthly</p>
+  <p><strong>Key benefit bullets (claim-safe):</strong></p>
+  <ul>
+    <li>Supports high-intensity exercise performance when fatigue builds.</li>
+    <li>Supports recovery after intense training.</li>
+    <li>Helps reduce exercise-related muscle soreness (use with care; avoid pain-relief framing).</li>
+    <li>Designed for consistency-seeking athletes training multiple sessions per week.</li>
+  </ul>
+  <p><strong>Trust section:</strong> cGMP manufacturing · COAs available · Third-party testing · Transparent science summary via QR.</p>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">10</div>
+</section>
+
+<!-- ───── PAGE 11: WEB DESIGN SYSTEM PATTERNS ───── -->
+<section class="page">
+  <div class="eyebrow">Section 08</div>
+  <h1 class="section-num"><span class="n">08</span>Web design system patterns.</h1>
+  <hr class="rule-thick">
+
+  <p>The site uses five named patterns. Never repeat the same pattern more than once per page. Across the site, vary patterns so no two adjacent pages look identical in structure.</p>
+
+  <div class="pattern-grid">
+
+    <div class="pattern">
+      <div class="pattern-name">Signature numbered grid</div>
+      <div class="pattern-where">Home — pillars</div>
+      <p>Three or four cards in a grid, each with a small dim numeral, heading, body. Signature device. Use once per page maximum, ideally above the fold.</p>
+      <div class="pattern-vis">
+        <span class="n dim">01</span><span class="n dim">02</span><span class="n dim">03</span>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern-name">Horizontal scroll rail</div>
+      <div class="pattern-where">PDP — key benefits</div>
+      <p>4 cards in a horizontal row with <code>scroll-snap-type: x mandatory</code>. Numerals in steel accent. Cards on <code>--c-surface-2</code>. Scrollbar hairline visible.</p>
+      <div class="pattern-vis">
+        <span class="n steel">01</span><span class="n steel">02</span><span class="n steel">03</span><span class="n steel" style="opacity:0.5">04</span>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern-name">Editorial poster</div>
+      <div class="pattern-where">About — three principles</div>
+      <p>Massive numerals (clamp 140–260px) in very dim <code>--c-surface-3</code>, sitting behind a large heading and body. Hairline rules top &amp; bottom of each band.</p>
+      <div class="pattern-vis">
+        <span class="n" style="font-size:48pt;color:var(--c-surface-3)">01</span>
+        <div class="label">Heading + body</div>
+      </div>
+    </div>
+
+    <div class="pattern">
+      <div class="pattern-name">Step-flow timeline</div>
+      <div class="pattern-where">Science — protocol</div>
+      <p>Three 01/02/03 numerals at 96px white, on a horizontal hairline connector that runs behind. Numerals knock out the line via section-color background.</p>
+      <div class="pattern-vis">
+        <span class="n">01</span>
+        <span class="connector"></span>
+        <span class="n">02</span>
+        <span class="connector"></span>
+        <span class="n">03</span>
+      </div>
+    </div>
+
+    <div class="pattern" style="grid-column: 1 / -1;">
+      <div class="pattern-name">Standard list (variant)</div>
+      <div class="pattern-where">About — four standards · Science — quality list</div>
+      <p>Two-column grid (4 items) with small steel numeral + heading + body, hairline borders. Use as a counterweight after a signature numbered grid or editorial poster — never as the only pattern on a page.</p>
+    </div>
+  </div>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">11</div>
+</section>
+
+<!-- ───── PAGE 12: CREATOR & SOCIAL ───── -->
+<section class="page">
+  <div class="eyebrow">Section 09</div>
+  <h1 class="section-num"><span class="n">09</span>Creator &amp; social toolkit.</h1>
+  <hr class="rule-thick">
+
+  <h2>Content pillars</h2>
+  <ul>
+    <li>Finish moments (late-session grit, clean form).</li>
+    <li>Repeatable week (consistency identity, streaks).</li>
+    <li>Recover ready (next-session readiness).</li>
+    <li>Minimalism (no shaker, no drama, no hype).</li>
+    <li>Proof (QR science page; factual).</li>
+  </ul>
+
+  <div class="do-dont mt-3">
+    <div class="do-col">
+      <h3>Creator do's</h3>
+      <ul>
+        <li>Use functional fitness settings without trademarked signage.</li>
+        <li>Speak to consistency: "train hard today, show up ready tomorrow."</li>
+        <li>Use support language (supports performance / recovery).</li>
+        <li>Include disclosure (#ad, #sponsored) when required.</li>
+        <li>Periods, commas, colons. No em dashes in body copy.</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <h3>Creator don'ts</h3>
+      <ul>
+        <li>No disease claims, no pain-relief claims.</li>
+        <li>No fat-loss promises.</li>
+        <li>No "ignore injury / ignore pain" messaging.</li>
+        <li>No CrossFit references or implied endorsements.</li>
+        <li>No "EXPLOSIVE GAINS" caps copy.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Sample 15-second script (UGC)</h2>
+  <p class="pillquote">"The last reps are where I usually fade. NØ QUIT is built for repeatable intensity. Supports performance when fatigue peaks. Supports recovery after hard sessions. Finish strong. Recover ready."</p>
+  <p class="note">Note the periods. The brand voice gets its weight from stop punctuation, not em dashes.</p>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">12</div>
+</section>
+
+<!-- ───── PAGE 13: APPENDIX + CHANGELOG ───── -->
+<section class="page">
+  <div class="eyebrow">Section 10</div>
+  <h1 class="section-num"><span class="n">10</span>Appendix &amp; changelog.</h1>
+  <hr class="rule-thick">
+
+  <h2>A. QR 'Science' page draft (plain-English)</h2>
+  <p><strong>Headline:</strong> The Science Behind NØ QUIT</p>
+  <p>NØ QUIT is built around phenylcapsaicin and designed for repeatable high-intensity performance and recovery after hard training.</p>
+  <p><strong>What researchers observed in trained functional fitness athletes:</strong></p>
+  <ul>
+    <li>Improved post-session squat performance (load and repetitions).</li>
+    <li>Reduced decline in countermovement jump performance.</li>
+    <li>Maintained weightlifting performance across rounds.</li>
+    <li>Lower delayed-onset muscle soreness at 24h and 48h.</li>
+  </ul>
+
+  <h2>B. Substantiation checklist</h2>
+  <ul>
+    <li>Maintain a claims library (every claim tied to a specific outcome and evidence).</li>
+    <li>Keep PDFs of all human studies and internal summaries (one page each).</li>
+    <li>Keep COAs and third-party testing reports for each lot.</li>
+    <li>Creator compliance: review scripts for banned claims before posting.</li>
+  </ul>
+
+  <h2>C. Accessibility floor</h2>
+  <ul>
+    <li>WCAG AA. Body text contrast ≥ 4.5:1 (current <code>--c-text #A8A39C</code> on <code>#080808</code> = 5.5:1, pass).</li>
+    <li>Full keyboard navigation across cart, gallery, accordion, purchase toggle, forms.</li>
+    <li><code>prefers-reduced-motion: reduce</code> respected: scroll-reveal animations disabled, content visible immediately.</li>
+    <li>Descriptive alt text on all product, brand, and editorial images.</li>
+    <li>Color never the sole carrier of meaning (e.g. subscribe vs. one-time, error states).</li>
+  </ul>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">13</div>
+</section>
+
+<!-- ───── PAGE 14: CHANGELOG ───── -->
+<section class="page">
+  <div class="eyebrow">Section 10 — continued</div>
+  <h1 class="section-num"><span class="n">10</span>v1 → v2 changelog.</h1>
+  <hr class="rule-thick">
+
+  <div class="changelog-row"><div>Item</div><div>v1 (Feb 2026)</div><div>v2 (May 2026)</div></div>
+  <div class="changelog-row"><div>Typography (display)</div><div class="from">Space Grotesk Bold</div><div>Barlow Condensed 600–900</div></div>
+  <div class="changelog-row"><div>Typography (body)</div><div class="from">Inter Regular/Medium</div><div>Barlow 300–500</div></div>
+  <div class="changelog-row"><div>Editorial accent (new)</div><div class="from">—</div><div>DM Serif Display 400 italic</div></div>
+  <div class="changelog-row"><div>Matte Black hex</div><div class="from">#0B0B0D</div><div>#080808</div></div>
+  <div class="changelog-row"><div>Steel Accent hex</div><div class="from">#7A8898</div><div>#6E8494</div></div>
+  <div class="changelog-row"><div>Steel Dark hex</div><div class="from">#55626F</div><div>Dropped (use Steel Light #90A8B8)</div></div>
+  <div class="changelog-row"><div>Off White</div><div class="from">#F3F5F7</div><div>#EDE9E3 (warmed)</div></div>
+  <div class="changelog-row"><div>Body text color</div><div class="from">unspecified</div><div>#A8A39C — AA 5.5:1</div></div>
+  <div class="changelog-row"><div>Dim text color</div><div class="from">unspecified</div><div>#7C7872 — AA-Large 3.5:1</div></div>
+  <div class="changelog-row"><div>Surface ladder</div><div class="from">unspecified</div><div>#101010 → #161616 → #1E1E1E → #252525</div></div>
+  <div class="changelog-row"><div>Warm chalk (new)</div><div class="from">—</div><div>#DDD8D2 (Pomelli interrupt panel only)</div></div>
+  <div class="changelog-row"><div>Anti-references</div><div class="from">unspecified</div><div>4 lanes: bro-hype · pharma-bland · cottage-wellness · generic DTC</div></div>
+  <div class="changelog-row"><div>Punctuation rule</div><div class="from">unspecified</div><div>Em dash banned in body copy; reserved for metadata only</div></div>
+  <div class="changelog-row"><div>CTA price construction</div><div class="from">"Shop NØ QUIT"</div><div>"Shop NØ QUIT · $59" (middle dot)</div></div>
+  <div class="changelog-row"><div>Pre-launch cart state (new)</div><div class="from">—</div><div>"Checkout opens at launch" disabled button</div></div>
+  <div class="changelog-row"><div>Web design patterns (new)</div><div class="from">—</div><div>5 named patterns (Section 08)</div></div>
+  <div class="changelog-row"><div>Accessibility floor (new)</div><div class="from">—</div><div>WCAG AA; reduced-motion supported</div></div>
+  <div class="changelog-row"><div>Tech stack</div><div class="from">Shopify + Klaviyo + GA4</div><div>Static HTML/CSS/JS at present; commerce stack stays as launch recommendation</div></div>
+
+  <div class="page-brand">NØ QUIT · Brand Manual v2</div>
+  <div class="page-num">14</div>
+</section>
+
+</body>
+</html>
